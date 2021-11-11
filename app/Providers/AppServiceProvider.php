@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Services\ApiResponseCacheService;
-use App\Services\ApiResponseService;
 use App\Services\Interfaces\ApiResponseServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-       //
+        $this->app->bind(ApiResponseServiceInterface::class,ApiResponseCacheService::class);
     }
 
     /**
